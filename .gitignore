@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# own gitignore rules
+.cache/
+portfolio.aux
+portfolio.html
+portfolio.log
+portfolio.md
+portfolio.out
+portfolio.pdf
+portfolio.tex
