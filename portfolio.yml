@@ -10,31 +10,54 @@
 # ref:
 # - https://yamlresume.dev/docs/compiler/schema
 # - https://yamlresume.dev/docs/compiler/schema/json
+#
+# Multilingual content: text fields accept either a plain string or a map of
+# locale codes to strings.  Switch locale.language below to render a different
+# language.  Catalan ('ca') is stored here but requires adding 'ca' to the
+# supported locale list before it can be selected via locale.language.
 
 ---
+
 content:
   basics:
     name: Aleix Dufresne
-    headline: Headed for the Pacific
+    headline:
+      en: Headed for the Pacific
+      es: Con rumbo al Pacífico
+      cat: Rumb al Pacífic
     phone: "(213) 555-9876"
     email: hi@ppresume.com
     url: https://ppresume.com/gallery
-    # All summary fields supports a limited rich text capabilities in markdown
+    # All summary fields support a limited rich text capability in markdown
     # syntax:
     #
     # - bold, (e.g, `**bold**`)
     # - italic, (e.g, `*italic*`)
-    # - ordered list, unordored list and nested sub list
+    # - ordered list, unordered list and nested sub list
     # - links (e.g. `[link](https://ppresume.com)`)
-    summary: |
-      - Computer Science major with strong foundation in data structures, algorithms, and software development
-      - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
-      - Experiened in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
-      - Team player, with detail-oriented mindset and a keen eye for design and user experiences
+    summary:
+      en: |
+        - Computer Science major with strong foundation in data structures, algorithms, and software development
+        - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
+        - Experienced in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
+        - Team player, with detail-oriented mindset and a keen eye for design and user experiences
+      es: |
+        - Estudiante de Ciencias de la Computación con sólidas bases en estructuras de datos, algoritmos y desarrollo de software
+        - Desarrollador web full stack con atención al detalle, especializado en crear sitios web de alta calidad y atractivo visual
+        - Experiencia en bases de datos (SQL, NoSQL), familiarizado con tecnologías del lado del servidor (Node.js, Express, etc.)
+        - Trabajador en equipo, con mentalidad orientada al detalle y buen ojo para el diseño y la experiencia de usuario
+      cat: |
+        - Estudiant d'Informàtica amb sòlides bases en estructures de dades, algorismes i desenvolupament de programari
+        - Desenvolupador web full stack amb atenció al detall, especialitzat en crear llocs web d'alta qualitat i atractiu visual
+        - Experiència en bases de dades (SQL, NoSQL), familiaritzat amb tecnologies del costat del servidor (Node.js, Express, etc.)
+        - Treballador en equip, amb mentalitat orientada al detall i bon ull per al disseny i l'experiència d'usuari
   location:
     address: 123 Main Street
     city: Sacramento
-    region: California
+    region:
+      en: California
+      es: California
+      cat: Califòrnia
     country: United States
     postalCode: "95814"
   profiles:
@@ -57,17 +80,14 @@ content:
       # - 'Master'
       # - 'Doctor'
       degree: Bachelor
-      area: Computer Engineering and Computer Science
+      area:
+        en: Computer Engineering and Computer Science
+        es: Ingeniería Informática y Ciencias de la Computación
+        cat: Enginyeria Informàtica i Ciències de la Computació
       score: "3.8"
       # Should be a valid date string that can be parsed by `new Date(dateStr)`
       # in JavaScript, eg. '2020-01', '2020-02-03', 'Jul 1, 2023' etc.
-      #
-      # The date part would be removed in the final output as most of the time
-      # people won't really care about the exact date for your working
-      # experience or education background, etc.
-      # ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
       startDate: Sep 1, 2016
-      # Leave endDate blank to indicate "Present"
       endDate: Jul 1, 2020
       courses:
         - Discrete Methods in Computer Science
@@ -78,22 +98,47 @@ content:
         - Database Systems
         - Computer Networking
         - Introduction to the Theory of Computing
-      summary: |
-        - Developed proficiency in programming languages such as Java, C++, and Python
-        - Gained hands-on experience in software development through various projects and assignments
-        - Strong communication and teamwork skills acquired through group projects and presentations
+      summary:
+        en: |
+          - Developed proficiency in programming languages such as Java, C++, and Python
+          - Gained hands-on experience in software development through various projects and assignments
+          - Strong communication and teamwork skills acquired through group projects and presentations
+        es: |
+          - Adquirí competencia en lenguajes de programación como Java, C++ y Python
+          - Obtuve experiencia práctica en desarrollo de software a través de diversos proyectos y tareas
+          - Desarrollé habilidades de comunicación y trabajo en equipo a través de proyectos grupales y presentaciones
+        cat: |
+          - Vaig adquirir competència en llenguatges de programació com Java, C++ i Python
+          - Vaig obtenir experiència pràctica en desenvolupament de programari a través de diversos projectes i tasques
+          - Vaig desenvolupar habilitats de comunicació i treball en equip a través de projectes grupals i presentacions
   work:
     - name: PPResume
       url: https://ppresume.com
       startDate: Dec 1, 2022
       endDate:
-      position: Senior Software Engineer
-      summary: |
-        - Developed and implemented efficient and scalable code, ensuring high-quality and maintainable web applications
-        - Collaborated with cross-functional teams to gather project requirements and translate them into technical solutions
-        - Conducted thorough testing and debugging to identify and resolve any issues or bugs in the software
-        - Actively participated in code reviews, providing valuable feedback to improve code quality and adherence to best practices
-        - Mentored and guided junior developers, fostering a collaborative and growth-oriented team environment
+      position:
+        en: Senior Software Engineer
+        es: Ingeniero de Software Senior
+        cat: Enginyer de Programari Sènior
+      summary:
+        en: |
+          - Developed and implemented efficient and scalable code, ensuring high-quality and maintainable web applications
+          - Collaborated with cross-functional teams to gather project requirements and translate them into technical solutions
+          - Conducted thorough testing and debugging to identify and resolve any issues or bugs in the software
+          - Actively participated in code reviews, providing valuable feedback to improve code quality and adherence to best practices
+          - Mentored and guided junior developers, fostering a collaborative and growth-oriented team environment
+        es: |
+          - Desarrollé e implementé código eficiente y escalable, garantizando aplicaciones web de alta calidad y mantenibles
+          - Colaboré con equipos multifuncionales para recopilar requisitos del proyecto y traducirlos en soluciones técnicas
+          - Realicé pruebas exhaustivas y depuración para identificar y resolver problemas o errores en el software
+          - Participé activamente en revisiones de código, aportando comentarios valiosos para mejorar la calidad y las buenas prácticas
+          - Mentoricé y guié a desarrolladores junior, fomentando un entorno de equipo colaborativo y orientado al crecimiento
+        cat: |
+          - Vaig desenvolupar i implementar codi eficient i escalable, garantint aplicacions web d'alta qualitat i mantenibles
+          - Vaig col·laborar amb equips multifuncionals per recollir requisits del projecte i traduir-los en solucions tècniques
+          - Vaig realitzar proves exhaustives i depuració per identificar i resoldre problemes o errors al programari
+          - Vaig participar activament en revisions de codi, aportant comentaris valuosos per millorar la qualitat i les bones pràctiques
+          - Vaig guiar i assessorar desenvolupadors júniors, fomentant un entorn d'equip col·laboratiu i orientat al creixement
       keywords:
         - Scalability
         - Growth
@@ -103,12 +148,26 @@ content:
       url: https://ppresume.com
       startDate: Sep 1, 2020
       endDate: Dec 1, 2022
-      position: Software Engineer
-      summary: |
-        - Created reusable React components to ensure code efficiency and maintainability
-        - Integrated with RESTful APIs to fetch and display dynamic data on the frontend
-        - Implemented client-side routing using React Router for smooth navigation between pages
-        - Actively participated in Agile development methodologies, attending daily stand-up meetings and sprint planning sessions
+      position:
+        en: Software Engineer
+        es: Ingeniero de Software
+        cat: Enginyer de Programari
+      summary:
+        en: |
+          - Created reusable React components to ensure code efficiency and maintainability
+          - Integrated with RESTful APIs to fetch and display dynamic data on the frontend
+          - Implemented client-side routing using React Router for smooth navigation between pages
+          - Actively participated in Agile development methodologies, attending daily stand-up meetings and sprint planning sessions
+        es: |
+          - Creé componentes React reutilizables para garantizar la eficiencia y mantenibilidad del código
+          - Me integré con APIs RESTful para obtener y mostrar datos dinámicos en el frontend
+          - Implementé enrutamiento del lado del cliente usando React Router para una navegación fluida entre páginas
+          - Participé activamente en metodologías de desarrollo Agile, asistiendo a reuniones diarias y sesiones de planificación de sprint
+        cat: |
+          - Vaig crear components React reutilitzables per garantir l'eficiència i mantenibilitat del codi
+          - Vaig integrar APIs RESTful per obtenir i mostrar dades dinàmiques al frontend
+          - Vaig implementar l'enrutament del costat del client amb React Router per a una navegació fluida entre pàgines
+          - Vaig participar activament en metodologies de desenvolupament Agile, assistint a reunions diàries i sessions de planificació de sprint
       keywords:
         - RESTful
         - React
@@ -138,7 +197,10 @@ content:
     # - 'Advanced'
     # - 'Expert'
     # - 'Master'
-    - name: Web Development
+    - name:
+        en: Web Development
+        es: Desarrollo Web
+        cat: Desenvolupament Web
       level: Expert
       keywords:
         - Python
@@ -146,7 +208,10 @@ content:
         - CSS
         - React
         - JavaScript
-    - name: DevOps
+    - name:
+        en: DevOps
+        es: DevOps
+        cat: DevOps
       level: Intermediate
       keywords:
         - Python
@@ -154,81 +219,151 @@ content:
         - Docker
         - Shell
         - Ansible
-    - name: Design
+    - name:
+        en: Design
+        es: Diseño
+        cat: Disseny
       level: Intermediate
       keywords:
         - Sketch
         - Figma
         - Photoshop
   awards:
-    - title: Dean's List
+    - title:
+        en: Dean's List
+        es: Lista del Decano
+        cat: Llista del Degà
       awarder: University of Southern California
       date: Oct 2016
-      summary: |
-        Awarded to students who achieve a high academic standing by maintaining a specified grade point average (GPA) during a semester.
+      summary:
+        en: |
+          Awarded to students who achieve a high academic standing by maintaining a specified grade point average (GPA) during a semester.
+        es: |
+          Otorgado a estudiantes que logran un alto rendimiento académico manteniendo un promedio de calificaciones (GPA) especificado durante un semestre.
+        cat: |
+          Atorgat als estudiants que assoleixen un alt rendiment acadèmic mantenint una mitjana de qualificacions (GPA) especificada durant un semestre.
   certificates:
-    - name: AWS Certified Developer - Associate
+    - name:
+        en: AWS Certified Developer - Associate
+        es: Desarrollador Certificado de AWS - Asociado
+        cat: Desenvolupador Certificat d'AWS - Associat
       url: https://aws.amazon.com/certification/
       issuer: AWS
       date: Mar 2021
   publications:
     - publisher: ACM Transactions on Interactive Intelligent Systems
       url: https://dl.acm.org/journal/tiis
-      name: Enhancing Human-Computer Interaction through Augmented Reality
+      name:
+        en: Enhancing Human-Computer Interaction through Augmented Reality
+        es: Mejorando la Interacción Humano-Computadora mediante Realidad Aumentada
+        cat: Millorant la Interacció Humà-Ordinador mitjançant Realitat Augmentada
       releaseDate: Dec 2017
-      summary: |
-        - Explores the potential of augmented reality (AR) in improving interaction between humans and computers
-        - Highlights benefits of AR in various areas such as gaming, education, healthcare, and design
-        - Discusses challenges and future directions of AR technology in enhancing user experience
+      summary:
+        en: |
+          - Explores the potential of augmented reality (AR) in improving interaction between humans and computers
+          - Highlights benefits of AR in various areas such as gaming, education, healthcare, and design
+          - Discusses challenges and future directions of AR technology in enhancing user experience
+        es: |
+          - Explora el potencial de la realidad aumentada (RA) para mejorar la interacción entre humanos y computadoras
+          - Destaca los beneficios de la RA en áreas como los videojuegos, la educación, la salud y el diseño
+          - Analiza los desafíos y las direcciones futuras de la tecnología de RA para mejorar la experiencia de usuario
+        cat: |
+          - Explora el potencial de la realitat augmentada (RA) per millorar la interacció entre humans i ordinadors
+          - Destaca els beneficis de la RA en àrees com els videojocs, l'educació, la salut i el disseny
+          - Analitza els reptes i les direccions futures de la tecnologia de RA per millorar l'experiència d'usuari
   references:
     - name: Dr. Amanda Reynolds
       phone: "(555) 123-4567"
       relationship: Computer Science Professor
       email: amanda.reynolds@usc.edu
-      summary: |
-        Andy Dufresne shows exceptional problem-solving skills and a solid understanding of programming concepts, he would bring immense value to any team or organization he becomes a part of.
+      summary:
+        en: |
+          Andy Dufresne shows exceptional problem-solving skills and a solid understanding of programming concepts, he would bring immense value to any team or organization he becomes a part of.
+        es: |
+          Andy Dufresne demuestra habilidades excepcionales para resolver problemas y un sólido conocimiento de los conceptos de programación; aportaría un valor inmenso a cualquier equipo u organización del que forme parte.
+        cat: |
+          Andy Dufresne demostra habilitats excepcionals per resoldre problemes i una sòlida comprensió dels conceptes de programació; aportaria un valor immens a qualsevol equip o organització de la qual formi part.
   projects:
-    - name: EduWeb
+    - name:
+        en: EduWeb
+        es: EduWeb
+        cat: EduWeb
       url: https://www.eduweb.xyz/
-      description: A web-based educational platform for interactive learning
+      description:
+        en: A web-based educational platform for interactive learning
+        es: Una plataforma educativa basada en web para el aprendizaje interactivo
+        cat: Una plataforma educativa basada en web per a l'aprenentatge interactiu
       startDate: Sep 2016
       endDate: Dec 2016
-      summary: |
-        - Designed to enhance online learning experiences
-        - Facilitates students' engagement and collaboration through interactive features and user-friendly interface
-        - Offers a wide range of courses across various subjects
-        - Aims to improve the way students learn through the power of the web
+      summary:
+        en: |
+          - Designed to enhance online learning experiences
+          - Facilitates students' engagement and collaboration through interactive features and user-friendly interface
+          - Offers a wide range of courses across various subjects
+          - Aims to improve the way students learn through the power of the web
+        es: |
+          - Diseñado para mejorar las experiencias de aprendizaje en línea
+          - Facilita la participación y colaboración de los estudiantes a través de funciones interactivas e interfaz amigable
+          - Ofrece una amplia gama de cursos en diversas materias
+          - Busca mejorar la forma en que los estudiantes aprenden aprovechando el poder de la web
+        cat: |
+          - Dissenyat per millorar les experiències d'aprenentatge en línia
+          - Facilita la participació i col·laboració dels estudiants a través de funcions interactives i interfície amigable
+          - Ofereix una àmplia gamma de cursos en diverses matèries
+          - Pretén millorar la forma en què els estudiants aprenen aprofitant el poder del web
       keywords:
         - Education
         - Online Learning
         - HCI
   interests:
-    - name: Sports
+    - name:
+        en: Sports
+        es: Deportes
+        cat: Esports
       keywords:
         - Soccer
         - Swimming
         - Bicycling
         - Hiking
-    - name: Music
+    - name:
+        en: Music
+        es: Música
+        cat: Música
       keywords:
         - Piano
         - Guitar
   volunteer:
     - organization: USC Computer Science and Engineering Society
       url: https://www.usccsesociety.org/
-      position: Tech Mentor
+      position:
+        en: Tech Mentor
+        es: Mentor Tecnológico
+        cat: Mentor Tecnològic
       startDate: Sep 2015
       endDate: Jul 2023
-      summary: |
-        - Volunteered as a Tech Mentor at USC Computer Science and Engineering Society
-        - Provided guidance and assistance to fellow students in their technical projects and coursework
-        - Assisted in organizing workshops, coding competitions, and networking events for the society members
-        - Contributed to fostering a collaborative and supportive environment within the student community
+      summary:
+        en: |
+          - Volunteered as a Tech Mentor at USC Computer Science and Engineering Society
+          - Provided guidance and assistance to fellow students in their technical projects and coursework
+          - Assisted in organizing workshops, coding competitions, and networking events for the society members
+          - Contributed to fostering a collaborative and supportive environment within the student community
+        es: |
+          - Ejercí como Mentor Tecnológico en la USC Computer Science and Engineering Society
+          - Proporcioné orientación y asistencia a compañeros estudiantes en sus proyectos técnicos y coursework
+          - Ayudé a organizar talleres, competencias de programación y eventos de networking para los miembros de la sociedad
+          - Contribuí a fomentar un entorno colaborativo y de apoyo dentro de la comunidad estudiantil
+        cat: |
+          - Vaig exercir com a Mentor Tecnològic a la USC Computer Science and Engineering Society
+          - Vaig proporcionar orientació i assistència als companys estudiants en els seus projectes tècnics i tasques
+          - Vaig ajudar a organitzar tallers, competicions de programació i esdeveniments de networking per als membres de la societat
+          - Vaig contribuir a fomentar un entorn col·laboratiu i de suport dins de la comunitat estudiantil
 
-# Top-level locale setting
+# Top-level locale setting — switch to 'es' to render in Spanish.
+# Catalan ('ca') keys are stored above but require adding 'ca' to the
+# supported locale list in the tool before it can be selected here.
 locale:
   # Use `yamlresume languages list` to get the list of supported languages
-  language: en
+  language: cat
 
 # Multiple output layouts configuration
 layouts:
