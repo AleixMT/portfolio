@@ -112,7 +112,8 @@ content:
           - Vaig obtenir experiència pràctica en desenvolupament de programari a través de diversos projectes i tasques
           - Vaig desenvolupar habilitats de comunicació i treball en equip a través de projectes grupals i presentacions
   work:
-    - name: PPResume
+    - id: ppresume-senior
+      name: PPResume
       url: https://ppresume.com
       startDate: Dec 1, 2022
       endDate:
@@ -144,7 +145,8 @@ content:
         - Growth
         - Quality
         - Mentorship
-    - name: PPResume
+    - id: ppresume-engineer
+      name: PPResume
       url: https://ppresume.com
       startDate: Sep 1, 2020
       endDate: Dec 1, 2022
@@ -197,7 +199,8 @@ content:
     # - 'Advanced'
     # - 'Expert'
     # - 'Master'
-    - name:
+    - id: web-development
+      name:
         en: Web Development
         es: Desarrollo Web
         cat: Desenvolupament Web
@@ -208,7 +211,12 @@ content:
         - CSS
         - React
         - JavaScript
-    - name:
+      usedIn:
+        - ppresume-senior
+        - ppresume-engineer
+        - eduweb
+    - id: devops
+      name:
         en: DevOps
         es: DevOps
         cat: DevOps
@@ -219,7 +227,11 @@ content:
         - Docker
         - Shell
         - Ansible
-    - name:
+      usedIn:
+        - ppresume-senior
+        - aws-cert
+    - id: design
+      name:
         en: Design
         es: Diseño
         cat: Disseny
@@ -228,6 +240,8 @@ content:
         - Sketch
         - Figma
         - Photoshop
+      usedIn:
+        - eduweb
   awards:
     - title:
         en: Dean's List
@@ -243,7 +257,8 @@ content:
         cat: |
           Atorgat als estudiants que assoleixen un alt rendiment acadèmic mantenint una mitjana de qualificacions (GPA) especificada durant un semestre.
   certificates:
-    - name:
+    - id: aws-cert
+      name:
         en: AWS Certified Developer - Associate
         es: Desarrollador Certificado de AWS - Asociado
         cat: Desenvolupador Certificat d'AWS - Associat
@@ -284,7 +299,8 @@ content:
         cat: |
           Andy Dufresne demostra habilitats excepcionals per resoldre problemes i una sòlida comprensió dels conceptes de programació; aportaria un valor immens a qualsevol equip o organització de la qual formi part.
   projects:
-    - name:
+    - id: eduweb
+      name:
         en: EduWeb
         es: EduWeb
         cat: EduWeb
