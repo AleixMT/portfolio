@@ -50,6 +50,9 @@ portfolio.docx
 
 # ignore loose files under content/ but keep the tracked submodules
 /content/*
-!/content/aleixmt
-!/content/aleixmt.github.io
+!/content/AleixMT
+!/content/AleixMT.github.io
 .idea
+
+# Claude Code personal settings (not shared)
+/.claude/settings.local.json

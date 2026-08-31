@@ -56,6 +56,11 @@ to `portfolio.yml` and are gitignored.
 
 Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`.
 
+> **⚠️ Step 4 (GitHub repo metadata) is mandatory and is the one most often forgotten.**
+> Adding a project is **not done** until the repo has the `portfolio` topic *and* a description on
+> GitHub. If you cannot reach the GitHub API, stop and tell the user it is still pending — do not
+> silently finish without it.
+
 1. **Check that the project works.** Clone the repository into `projects/<name>/` (the `projects/`
    directory at the repo root is gitignored and exists only for this) and actually build/run it,
    following the project's own instructions (Docker, Make, language toolchain, etc.). Record what
@@ -72,16 +77,21 @@ Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`
    - `portfolio.yml`
    - `content/AleixMT/README.md`
    - `content/AleixMT.github.io`
-4. **Set the repo metadata on GitHub.** For every repository parsed this way, make sure its
-   GitHub repository has:
+4. **Set the repo metadata on GitHub. — REQUIRED, DO NOT SKIP.** For every repository parsed this
+   way (including this run: whatever project the user just asked to add), make sure its GitHub
+   repository has:
    - the topic **`portfolio`** — via the REST API (`PUT /repos/<owner>/<repo>/topics` with the
      *full* topics list) or the repo's *About → Topics* panel. `AleixMT/AleixMT` already has it.
    - a **description** in the *About* panel — a one-line summary of the project, kept consistent
      with the `description` field of the project in `portfolio.yml`. Set it via the REST API
      (`PATCH /repos/<owner>/<repo>` with `{"description": "..."}`) or the *About* panel.
 
-   `gh` is not installed here: use the REST API with the user's auth, or ask the user to make
-   these changes via the repo's *About* panel.
+   `gh` is not installed here: use the REST API with the user's auth (a GitHub token is available
+   through git's credential helper — `printf 'protocol=https\nhost=github.com\n\n' | git credential
+   fill`), or ask the user to make these changes via the repo's *About* panel.
+
+**Before reporting the project as added, confirm all four:** ☐ `portfolio.yml` ☐
+`content/AleixMT/README.md` ☐ `content/AleixMT.github.io` ☐ GitHub topic `portfolio` + description.
 
 ## How to sync the project section
 
