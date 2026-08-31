@@ -93,18 +93,23 @@ content:
       summary: |
         - Design, develop and maintain solutions for the digitalization needs of researchers at ICIQ
         - Meet with research leaders and coordinators to capture digitalization needs and evolve the applications accordingly
-        - Manage own hardware infrastructure and run the institute's digitalization services
-        - Build and maintain a CI/CD pipeline that packages the application as a Docker image and deploys it to the server
+        - Manage own hardware infrastructure and run the institute's digitalization services, including administering the iMarina CRIS service, the ICIQ CORA.RDR instance and several on-premises Ubuntu Server machines that host services for other units and departments
+        - Build and maintain CI/CD pipelines that package the applications as Docker images, test and validate them, and deploy them to the on-premise production server
+        - Handle confidential and protected data with dedicated security controls across the whole workflow
         - Document digitalization workflows for both researchers and future data stewards
-        - Attend and present at data-science conferences, seminars and events (e.g. the ICIQ Open Data Day)
-        - design and deploy data-management platforms used by researchers across
+        - Attend and present at data-science conferences, seminars and events (e.g. the ICIQ Open Data Day, the SHARP program, the HR initialization course)
+        - Design and deploy data-management platforms used by researchers across
         Europe, automate build/test/deploy pipelines, model business operations and architect systems from scratch
       keywords:
         - Automation
         - CI/CD
         - Docker
+        - Jenkins
+        - GitHub Actions
+        - Microsoft 365
         - Data Stewardship
         - Infrastructure
+        - Security
     - name: Universitat Rovira i Virgili
       url: https://www.urv.cat/
       position: Substitute Teacher
@@ -119,15 +124,15 @@ content:
         - Computer Architecture
         - Mentoring
     - name: Institut Català d'Investigació Química (ICIQ)
-      url: https://github.com/AleixMT/eChempad
+      url: https://github.com/ICIQ-DMP/eChempad
       position: Full Stack Engineer — Bo Research Group
       startDate: Mar 2021
       endDate: Apr 2025
       summary: |
-        - Built eChempad, a digitalization platform that lets experimental chemists extract research datasets from PerkinElmer Signals Notebook and export them to an official research data repository (https://echempad.iciq.cat)
-        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker
-        - Contributed patches to IQSS/dataverse-client-java to support the integration
-        - Repository: https://github.com/AleixMT/eChempad
+        - Built eChempad, a web platform to manage the life-cycle of experimental chemistry data: it lets researchers extract research datasets from PerkinElmer Signals Notebook and export them to CORA.RDR (https://echempad.iciq.cat), the official research data repository based on Dataverse
+        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker onto an on-premise server
+        - Contributed patches to IQSS/dataverse-client-java to support the Dataverse integration
+        - Repository: https://github.com/ICIQ-DMP/eChempad
       keywords:
         - Java
         - Spring Boot
@@ -141,11 +146,15 @@ content:
       startDate: Sep 2019
       endDate: Mar 2021
       summary: |
-        - Led disaster mitigation and full infrastructure recovery after a ransomware (BitLocker) attack on the business
-        - Recovered data and restored services with minimal disruption for users
-        - Rebuilt and hardened the Windows-based infrastructure with stronger security
+        - Led disaster mitigation and prevention for a business affected by the BitLocker ransomware
+        - Redesigned the network and system security to prevent the problem from recurring
+        - Changed the application stack to keep disruption to users to a minimum
+        - Recovered data and restored services after the attack
+        - Semi-automated business processes such as email-signature generation
       keywords:
         - Incident Response
+        - Ransomware
+        - Network Security
         - Windows
         - Security
         - Backup
@@ -156,8 +165,8 @@ content:
       endDate: Sep 2019
       summary: |
         - Exhaustive analysis of Human Activity Recognition (HAR) techniques and the feasibility of machine-learning algorithms for HAR, reviewing 200+ scientific papers
-        - Produced the review delivered as my final degree project, intended as the theoretical basis for an e-health platform to support early mobilisation in Intensive Care Units
-        - Work fed into the IISA 2019 publication "e-PEMICU"
+        - Produced the review delivered as my second final degree project, intended as the theoretical basis for an e-health platform to support early mobilisation in Intensive Care Units
+        - Work fed into the IISA 2019 IEEE publication "e-PEMICU" (https://ieeexplore.ieee.org/document/8900718)
       keywords:
         - Machine Learning
         - HAR
@@ -207,30 +216,87 @@ content:
   projects:
     - name: Justicier
       url: https://github.com/ICIQ-DMP/Justicier
-      description: Automation to extract the relevant pages of payroll PDFs for a given employee and period.
+      description: Microsoft-cloud-native automation that pulls HR documents from SharePoint and extracts the relevant payroll pages for a given employee and period.
       startDate: Sep 2025
       endDate:
       summary: |
         - Employees submit requests via Microsoft Forms; a Microsoft List is the source of truth for execution parameters
-        - New requests trigger Power Automate, which runs a Microsoft Approvals workflow for supervisor sign-off
-        - On approval, an on-premises Jenkins instance behind an NGINX firewall triggers the job
-        - OneDrive client for Linux keeps SharePoint inputs and processed outputs in sync; components deployed with Docker
+        - New requests trigger Power Automate, which runs a Microsoft Approvals workflow for authorized HR personnel to sign off each request
+        - On approval, an on-premises Jenkins instance behind an NGINX firewall triggers the Python job that retrieves the documents from the HR SharePoints and cuts the relevant pages
+        - When the job finishes the requester gets an email and the output is uploaded to their private SharePoint / OneDrive folder; the OneDrive client for Linux keeps inputs and outputs in sync
+        - Packaged as Docker images and shipped through GitHub Actions and Jenkins pipelines
+        - "Justicier Massiu" builds on top of it, accepting an Excel that lists many Justicier requests at once for bulk operations
+        - Documentation: https://iciq-dmp.github.io/justicier-docs/
       keywords:
         - Python
         - Bash
         - Docker
         - Jenkins
+        - GitHub Actions
         - NGINX
         - Power Automate
         - SharePoint
+    - name: Justifactu
+      url: https://github.com/ICIQ-DMP/justifactu
+      description: Microsoft-cloud-native automation that periodically curates ICIQ billing documents, merging each invoice with its bank proof and archiving it into the units' accounting spreadsheets.
+      startDate: Nov 2025
+      endDate:
+      summary: |
+        - Microsoft-cloud-native application that runs a periodic workflow and also reacts to new input documents being uploaded
+        - Core operation merges each invoice with its corresponding bank proof
+        - Then archives the merged documents against the accounting (economical) spreadsheets of every unit
+        - Packaged with Docker and a Makefile-driven build; documentation at https://iciq-dmp.github.io/justifactu-docs/
+      keywords:
+        - Python
+        - Docker
+        - Make
+        - Power Automate
+        - SharePoint
+        - Document Processing
+    - name: imarina-load-researchers
+      url: https://github.com/ICIQ-DMP/imarina-load-researchers
+      description: Microsoft-cloud-native automation that builds the researcher-update spreadsheet for the iMarina iPublic CRIS from the previous load and an A3 database snapshot.
+      startDate: Nov 2025
+      endDate:
+      summary: |
+        - Generates the spreadsheet used to update researchers in iMarina (a CRIS — Current Research Information System) from the last load plus a bulk export of ICIQ personnel from the A3 database
+        - Removes researchers who have left, updates those who changed positions within ICIQ and adds new ICIQ researchers
+        - Runs translation, standardization and curation checks over the data before upload
+        - Triggered from Microsoft Forms; Power Automate then asks the iMarina admin to run the Python code, which uploads the result to the iMarina server over SFTP
+        - Shares most of its tooling with Justicier, adapted to this problem
+        - Documentation: https://iciq-dmp.github.io/imarina-load-researchers-docs
+      keywords:
+        - Python
+        - Docker
+        - Power Automate
+        - SharePoint
+        - SFTP
+        - ETL
+        - CRIS
+    - name: ICIQ-DMP docs
+      url: https://github.com/ICIQ-DMP/docs
+      description: Composite MkDocs site that aggregates the documentation of all ICIQ-DMP projects — Justicier, Justifactu, imarina-load-researchers, eChempad and others.
+      startDate: Jun 2026
+      endDate:
+      summary: |
+        - Single composite repository that pulls together the per-project documentation sites (justicier-docs, justifactu-docs, imarina-load-researchers-docs, ...)
+        - Built with MkDocs and published with GitHub Pages
+        - Public per-project sites: https://iciq-dmp.github.io/justicier-docs/, https://iciq-dmp.github.io/imarina-load-researchers-docs and https://iciq-dmp.github.io/justifactu-docs/
+      keywords:
+        - MkDocs
+        - Markdown
+        - GitHub Pages
+        - GitHub Actions
+        - Documentation
     - name: eChempad
-      url: https://github.com/AleixMT/eChempad
-      description: Digitalization platform to move experimental chemistry datasets from PerkinElmer Signals Notebook into an official research data repository.
+      url: https://github.com/ICIQ-DMP/eChempad
+      description: Digitalization platform to move experimental chemistry datasets from PerkinElmer Signals Notebook into CORA.RDR, the official Dataverse-based research data repository.
       startDate: Sep 2021
       endDate:
       summary: |
-        - Lets experimental chemists digitalize their research and export it to an official repository (https://echempad.iciq.cat)
-        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker
+        - Web platform to manage the life-cycle of experimental chemistry data: extracts research datasets from PerkinElmer Signals Notebook and exports them to CORA.RDR, the Dataverse-based official research data repository (https://echempad.iciq.cat)
+        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker onto an on-premise server
+        - Contributed patches to IQSS/dataverse-client-java to support the Dataverse integration
         - Documentation published at https://iciq-dmp.github.io/
       keywords:
         - Java
@@ -383,90 +449,212 @@ content:
         - Data Structures
         - Algorithms
         - Make
+    - name: Trigenic Interaction Predictor
+      url: https://github.com/AleixMT/TrigenicInteractionPredictor
+      description: Big-data algorithm in Python that predicts unobserved genetic interactions between gene triplets in Saccharomyces cerevisiae using a Mixed-Membership Stochastic Block Model.
+      startDate: Jun 2018
+      endDate: Sep 2018
+      summary: |
+        - Processes genetic-interaction data of Saccharomyces cerevisiae with a Mixed-Membership Stochastic Block Model (MMSBM) and predicts the likelihood of non-observed interactions between triplets of genes
+        - Runs additional validation of the fitness of the model against the dataset and offers some data visualization of the results
+        - Started as my Bioinformatics final degree project in the SEES:lab research group (Sales-Pardo & Guimerà); work continued afterwards and contributed to a 2023 PNAS publication on hyperedge prediction in complex networks
+      keywords:
+        - Python
+        - Big Data
+        - MMSBM
+        - Complex Networks
+        - Research
 
   skills:
-    - name: Automation & DevOps
-      level: Expert
-      keywords:
-        - CI/CD
-        - Docker
-        - Jenkins
-        - GitHub Actions
-        - GitLab CI
-        - NGINX
-        - Automation
     - name: Programming Languages
       level: Expert
       keywords:
-        - Python
-        - Bash
         - Java
+        - Python
         - C
-        - Assembly
         - JavaScript
         - TypeScript
-    - name: Architecture & Practices
-      level: Advanced
-      keywords:
-        - Software Architecture
-        - Design Patterns
-        - UML
-        - Clean Code
-        - REST APIs
-        - Microservices
-        - Technical Documentation
-    - name: Backend & Web
+        - Bash
+        - ARM Assembly
+    - name: Backend & Web Development
       level: Advanced
       keywords:
         - Spring Boot
-        - ZK
-        - React
-        - Swagger
-        - Bootstrap
-        - Flask
-    - name: Data & Research Infrastructure
-      level: Advanced
-      keywords:
-        - Data Management
-        - Data Migration
-        - Dataverse
-        - Research Data Repositories
-        - Complex Networks
-    - name: Databases
-      level: Advanced
-      keywords:
-        - PostgreSQL
-        - Redis
-        - MariaDB
-        - MySQL
-        - MongoDB
-    - name: Platforms & Cloud
+        - Node.js
+        - REST APIs
+        - API Design
+        - Microservices
+        - Microservice Architecture
+        - NGINX
+        - Handlebars
+        - Puppeteer
+        - HTML/CSS
+    - name: Frontend & Mobile
       level: Intermediate
       keywords:
+        - React
+        - React Native
+        - Android
+        - iOS
+        - Expo
+        - EAS
+        - Mobile App Deployment
+        - App Store Connect
+        - Google Play Console
+    - name: DevOps, CI/CD & Infrastructure
+      level: Expert
+      keywords:
+        - Docker
+        - Docker Compose
+        - Podman
+        - Podman Compose
+        - Kubernetes
+        - Jenkins
+        - GitHub Actions
+        - CI/CD
+        - CI/CD Orchestration
         - Linux
-        - Google Workspace
-        - SharePoint
+        - Linux System Administration
+        - Linux Troubleshooting
+        - On-Premises Infrastructure
+        - Cross-Compilation
+        - devkitPro
+    - name: Cloud & Hybrid Cloud
+      level: Advanced
+      keywords:
         - AWS
         - Google Cloud
-        - Kubernetes
-        - Vercel
-    - name: Tools & Markup
+        - Google Cloud IAM
+        - Cloud-Native Development
+        - Hybrid Cloud
+        - Cloud-to-On-Premises Integration
+        - HashiCorp Vault
+        - Secrets Management
+        - SSH
+        - TLS/SSL
+        - Networking
+        - DNS
+    - name: Microsoft 365 / Cloud Automation
       level: Advanced
+      keywords:
+        - Microsoft 365
+        - Microsoft Lists
+        - Microsoft SharePoint
+        - Microsoft OneDrive
+        - Microsoft Forms
+        - Microsoft Power Automate
+        - Microsoft Approvals
+        - Microsoft 365 Mail
+        - Microsoft Graph API
+        - SharePoint Integration
+        - Microsoft 365 Integration
+    - name: Automation & Business Processes
+      level: Expert
+      keywords:
+        - Automation
+        - Workflow Automation
+        - Business Process Automation
+        - Approval Workflows
+        - Document Retrieval
+        - Document Management
+        - Document Processing
+        - Email Automation
+        - Python Automation
+        - Excel Automation
+    - name: Software Architecture & Design
+      level: Advanced
+      keywords:
+        - Software Architecture
+        - Clean Architecture
+        - Hexagonal Architecture
+        - Microservice Architecture
+        - Spec-Driven Software Design
+        - UML
+        - API Design
+        - Design Patterns
+        - Dependency Injection
+        - Object-Oriented Programming
+        - Requirements Engineering
+    - name: Testing & Software Quality
+      level: Advanced
+      keywords:
+        - Test-Driven Development (TDD)
+        - Unit Testing
+        - Integration Testing
+        - End-to-End Testing
+        - Test Automation
+        - Static Analysis
+        - Code Quality
+        - Software Validation
+        - Data Validation
+    - name: Data & Research
+      level: Advanced
+      keywords:
+        - Python
+        - pandas
+        - NumPy
+        - matplotlib
+        - SQL
+        - PostgreSQL
+        - ETL
+        - Data Transformation
+        - Data Integration
+        - Data Quality
+        - FAIR Data
+        - Research Data Management
+        - Data Stewardship
+        - Dataverse
+        - Metadata Management
+        - Data Provenance
+    - name: Version Control & Collaboration
+      level: Expert
       keywords:
         - Git
-        - Maven
-        - GNU Make
-        - Jekyll
-        - YAML
-        - LaTeX
-        - Markdown
-    - name: Project & Team
+        - GitHub
+        - GitHub CLI
+        - GitHub Actions
+        - GitHub Projects
+        - Code Review
+        - Pull Requests
+        - Agile
+        - Scrum
+        - Agile Project Management
+    - name: Documentation
       level: Advanced
       keywords:
-        - Project Management
-        - Mentoring
-        - Teaching
-        - Stakeholder Management
+        - Technical Writing
+        - Technical Documentation
+        - API Documentation
+        - Documentation-as-Code
+        - Markdown
+        - Jekyll
+        - GitHub Pages
+    - name: Systems / Low-Level Development
+      level: Intermediate
+      keywords:
+        - Embedded Systems
+        - Computer Architecture
+        - ARM Assembly
+        - Nintendo DS Homebrew
+        - Cross-Compilation
+        - devkitPro
+    - name: AI-Assisted Development
+      level: Advanced
+      keywords:
+        - Claude Code
+        - Agentic Development
+        - AI-Assisted Software Engineering
+    - name: Application / Enterprise Integration
+      level: Advanced
+      keywords:
+        - Microsoft Cloud Native
+        - Cloud-to-On-Premises Integration
+        - Hybrid Cloud
+        - SharePoint Integration
+        - Microsoft 365 Integration
+        - Workflow Orchestration
+        - Distributed Workflows
+        - On-Premises/Cloud Integration
 
   languages:
     - language: Spanish
@@ -522,7 +710,7 @@ content:
       releaseDate: "2019"
       url: https://doi.org/10.1109/iisa.2019.8900718
       summary: |
-        Authors: Martínez-Ballesté A., Gimeno P., Mariné A., Batista E., Solanas A. Indexed in IEEE Xplore.
+        Authors: Martínez-Ballesté A., Gimeno P., Mariné A., Batista E., Solanas A. Presented at IISA 2019, Patras (Greece), 15–17 July 2019, pp. 1–6; indexed in IEEE Xplore (https://ieeexplore.ieee.org/document/8900718). Grew out of my second final degree project, an exhaustive study of Human Activity Recognition (HAR) techniques to support early mobilisation in Intensive Care Units.
 
   volunteer:
     - organization: ASBTEC - Associació de Biotecnòlegs de Catalunya

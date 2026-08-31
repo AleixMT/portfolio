@@ -13,6 +13,7 @@ through Docker so nothing has to be installed on the host.
 | `portfolio.yml`  | The résumé content and the output layouts (HTML, LaTeX, DOCX, Markdown). |
 | `compose.yml`    | Docker Compose service that runs the `yamlresume/yamlresume` image. |
 | `.env`           | `UID` / `GID` so files written into the bind mount are owned by you. |
+| `.github/workflows/build-resume.yml` | CI: renders `portfolio.yml` on every push / PR to `master` and uploads the `.pdf`, `.tex` and `.html` as a build artifact. |
 | `content/`       | Source material the `portfolio.yml` was built from (LaTeX CV, LinkedIn export, GitHub profile). Ignored by git. |
 
 Generated artefacts (`portfolio.pdf`, `portfolio.html`, `portfolio.tex`,
@@ -66,3 +67,12 @@ Edit `portfolio.yml`. The schema is documented at
 <https://yamlresume.dev/docs/compiler/schema>; the
 `# yaml-language-server` line at the top of the file wires up autocomplete and
 validation in editors that support the YAML Language Server.
+
+## Continuous integration
+
+`.github/workflows/build-resume.yml` runs on every push and pull request to
+`master`. It renders `portfolio.yml` with the
+[`yamlresume/action`](https://github.com/yamlresume/action) and uploads the
+generated `portfolio.pdf`, `portfolio.tex` and `portfolio.html` as a single
+`portfolio` artifact, downloadable from the workflow run. The job fails if no
+output files are produced.
