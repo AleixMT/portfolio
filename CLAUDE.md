@@ -65,12 +65,19 @@ Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`
    directory at the repo root is gitignored and exists only for this) and actually build/run it,
    following the project's own instructions (Docker, Make, language toolchain, etc.). Record what
    the entry points are, how it is run, what it depends on, and whether it currently works.
-2. **Update that repo's `README.md`.** Rewrite it to follow the
-   [Best-README-Template](https://github.com/othneildrew/Best-README-Template) structure — logo /
-   title, badges, *About The Project*, *Built With*, *Getting Started* (*Prerequisites*,
-   *Installation*), *Usage*, *Roadmap*, *Contributing*, *License*, *Contact*, *Acknowledgments*.
-   Base the content on what step 1 revealed. This is a commit to the project's **own** repository
-   (the clone under `projects/`); commit and push it only when asked.
+2. **Update that repo's `README.md` — do this by default, even when not asked, but only when the
+   README needs it.** Judge the existing README first:
+   - **Missing, a stub, or very basic** (e.g. just a title and a line or two, no sections) → rewrite
+     it to follow the [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+     structure — logo / title, badges, *About The Project*, *Built With*, *Getting Started*
+     (*Prerequisites*, *Installation*), *Usage*, *Roadmap*, *Contributing*, *License*, *Contact*,
+     *Acknowledgments*. Base the content on what step 1 revealed.
+   - **Already has a substantial structure** (multiple real sections, install/usage instructions,
+     etc.) → leave it alone. Do not restructure a good README; at most fix an outright error if you
+     spot one. Skipping the rewrite here is expected, not a missed step.
+
+   This is a commit to the project's **own** repository (the clone under `projects/`); commit and
+   push it only when asked.
 3. **Update the portfolio.** Using the knowledge from running the project (step 1), the rewritten
    README (step 2) and a read of the repo contents, add/update the project in all three, one-way
    from `portfolio.yml` outward — see [How to sync the project section](#how-to-sync-the-project-section):
