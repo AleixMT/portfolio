@@ -16,9 +16,9 @@ At all times, keep content flowing in one direction, from `portfolio.yml` into t
 under `content/`:
 
 ```
-                 ┌─►  content/aleixmt/README.md      (GitHub profile README for AleixMT/AleixMT)
+                 ┌─►  content/AleixMT/README.md      (GitHub profile README for AleixMT/AleixMT)
 portfolio.yml ───┤
-                 └─►  content/aleixmt.github.io/      (Jekyll portfolio website)
+                 └─►  content/AleixMT.github.io/      (Jekyll portfolio website)
 ```
 
 Rules:
@@ -27,18 +27,18 @@ Rules:
 - Never propagate changes the other way — nothing in `content/` feeds back into `portfolio.yml`.
 - Whenever `portfolio.yml` changes, update **both** targets so they reflect it.
 - Do not delete pre-existing material in a target that simply has no counterpart in
-  `portfolio.yml` (e.g. `content/aleixmt.github.io/_posts/Projects/Academic_Projects/*Study-of-Artemia-sp*`)
+  `portfolio.yml` (e.g. `content/AleixMT.github.io/_posts/Projects/Academic_Projects/*Study-of-Artemia-sp*`)
   unless explicitly asked.
-- The user may spell the paths `content/AleixMT` and `content/AleixMT.github.io`; on disk they are
-  lowercase.
+- On disk the paths are `content/AleixMT` and `content/AleixMT.github.io`; the user may also spell
+  them lowercase (`content/aleixmt`, `content/aleixmt.github.io`).
 
 ## Repositories
 
 - Root `portfolio` repo — tracks `portfolio.yml`, `compose.yml`, `README.md`. `content/` is
   gitignored here.
-- `content/aleixmt/` — its own git repo, remote `AleixMT/aleixmt`; its `README.md` renders on the
+- `content/AleixMT/` — its own git repo, remote `AleixMT/AleixMT`; its `README.md` renders on the
   `AleixMT/AleixMT` GitHub profile.
-- `content/aleixmt.github.io/` — its own git repo, remote `AleixMT/AleixMT.github.io`, branch
+- `content/AleixMT.github.io/` — its own git repo, remote `AleixMT/AleixMT.github.io`, branch
   `master`.
 
 Commit inside whichever subdir you changed. Commit and push only when asked.
@@ -70,8 +70,8 @@ Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`
    README (step 2) and a read of the repo contents, add/update the project in all three, one-way
    from `portfolio.yml` outward — see [How to sync the project section](#how-to-sync-the-project-section):
    - `portfolio.yml`
-   - `content/aleixmt/README.md`
-   - `content/aleixmt.github.io`
+   - `content/AleixMT/README.md`
+   - `content/AleixMT.github.io`
 4. **Set the repo metadata on GitHub.** For every repository parsed this way, make sure its
    GitHub repository has:
    - the topic **`portfolio`** — via the REST API (`PUT /repos/<owner>/<repo>/topics` with the
@@ -88,7 +88,7 @@ Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`
 `portfolio.yml` projects live under `content.projects:` (before `content.skills:`), each with
 `name`, `url`, `description`, `startDate`, `endDate`, `summary: |` (bullets) and `keywords`.
 
-### content/aleixmt/README.md
+### content/AleixMT/README.md
 
 Add/update a `<details>` block inside the "My projects" `<details>`, just before its closing
 `<br></details>`. Match the existing block style: `<summary>` with the name, centered `Repository`
@@ -96,7 +96,7 @@ Add/update a `<details>` block inside the "My projects" `<details>`, just before
 `Used technologies:` `<h5>` with `.github/img/*` icon links. Comment out the screenshot `<p>` when
 there is no image (see the `github-backup` block).
 
-### content/aleixmt.github.io
+### content/AleixMT.github.io
 
 One Jekyll post per project at
 `_posts/Projects/{Job_Projects,Personal_Projects,Academic_Projects}/2023-07-04-<Name>.md`.
@@ -123,6 +123,6 @@ built for a university course → **Academic Projects**.
 ## Other sections
 
 `portfolio.yml` also carries `basics`, `work`, `education`, `skills`, `languages`, `awards`,
-`certificates`, `publications`, `volunteer` and `interests`. `content/aleixmt.github.io` has
+`certificates`, `publications`, `volunteer` and `interests`. `content/AleixMT.github.io` has
 matching stub pages under `_posts/` that are **not yet in sync**; extend them the same one-way way
 when asked.
