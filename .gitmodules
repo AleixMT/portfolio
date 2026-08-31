@@ -1,0 +1,6 @@
+[submodule "content/aleixmt"]
+	path = content/aleixmt
+	url = https://github.com/AleixMT/aleixmt
+[submodule "content/aleixmt.github.io"]
+	path = content/aleixmt.github.io
+	url = https://github.com/AleixMT/aleixmt.github.io

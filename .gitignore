@@ -37,6 +37,8 @@ next-env.d.ts
 
 # own gitignore rules
 .cache/
+# clones of portfolio projects, cloned here only to run and inspect them
+/projects/
 portfolio.aux
 portfolio.html
 portfolio.log
@@ -44,3 +46,10 @@ portfolio.md
 portfolio.out
 portfolio.pdf
 portfolio.tex
+portfolio.docx
+
+# ignore loose files under content/ but keep the tracked submodules
+/content/*
+!/content/aleixmt
+!/content/aleixmt.github.io
+.idea
