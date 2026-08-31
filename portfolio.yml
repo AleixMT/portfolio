@@ -367,6 +367,22 @@ content:
         - GitHub Actions
         - Docker
         - Markdown
+    - name: DataStructures
+      url: https://github.com/AleixMT/DataStructures
+      description: Personal collection of classic data-structure implementations in C, Java and Python.
+      startDate: May 2020
+      endDate:
+      summary: |
+        - Lists, stacks, queues, hash tables, skip lists, graphs, heaps and trees implemented from first principles, each with its own runnable test driver
+        - Started as coursework for the Data Structures course of the URV Computer Science degree, later extended with a Python list hierarchy and a Java double-ended queue
+        - C tree uses one makefile per module; the Java tree is an IntelliJ project; the Python tree is a small object-oriented List / LinkedList hierarchy
+      keywords:
+        - C
+        - Java
+        - Python
+        - Data Structures
+        - Algorithms
+        - Make
 
   skills:
     - name: Automation & DevOps
