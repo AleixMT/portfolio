@@ -27,7 +27,7 @@ Rules:
 - Never propagate changes the other way — nothing in `content/` feeds back into `portfolio.yml`.
 - Whenever `portfolio.yml` changes, update **both** targets so they reflect it.
 - Do not delete pre-existing material in a target that simply has no counterpart in
-  `portfolio.yml` (e.g. `content/AleixMT.github.io/_posts/Projects/Academic_Projects/*Study-of-Artemia-sp*`)
+  `portfolio.yml` (e.g. `content/AleixMT.github.io/_posts/Organizations/Personal_Projects_AleixMT/*Study-of-Artemia-sp*`)
   unless explicitly asked.
 - On disk the paths are `content/AleixMT` and `content/AleixMT.github.io`; the user may also spell
   them lowercase (`content/aleixmt`, `content/aleixmt.github.io`).
@@ -98,28 +98,45 @@ Follow these steps **in order**. Do not skip straight to editing `portfolio.yml`
 `portfolio.yml` projects live under `content.projects:` (before `content.skills:`), each with
 `name`, `url`, `description`, `startDate`, `endDate`, `summary: |` (bullets) and `keywords`.
 
+Both targets group projects by the **GitHub organization that owns the repo**:
+
+- `ICIQ-DMP/*` → **ICIQ-DMP**
+- `Gua-tk/*` → **Gua-tk software**
+- `URV-BioGEI/*` → **URV-BioGEI**
+- `vidwise/*` → **VidWise**
+- a repo under the personal `AleixMT` account, and university / coursework projects with no
+  GitHub org of their own → **Personal projects (AleixMT)**
+
+(`ASBTEC` and `Equipaments Hosteleria Salou` also exist as organizations but currently have no
+projects.)
+
 ### content/AleixMT/README.md
 
-Add/update a `<details>` block inside the "My projects" `<details>`, just before its closing
-`<br></details>`. Match the existing block style: `<summary>` with the name, centered `Repository`
-(and optional `Web page`) links, `<i>Month Year - Present</i>`, a `<ul>` of bullets, and a
-`Used technologies:` `<h5>` with `.github/img/*` icon links. Comment out the screenshot `<p>` when
-there is no image (see the `github-backup` block).
+Projects live inside the "🏘 My organizations" `<details>`, nested under their organization's
+`<details>`. Add/update a project `<details>` as the last child of the owning organization's
+block, just before that organization's trailing `<br><br>`. Match the existing block style:
+`<summary>` with the name, centered `Repository` (and optional `Web page`) links,
+`<i>Month Year - Present</i>`, a `<ul>` of bullets, and a `Used technologies:` `<h5>` with
+`.github/img/*` icon links. Comment out the screenshot `<p>` when there is no image (see the
+`github-backup` block). If the owning organization has no block yet, add one first (centered
+`github.com/<org>` link, short `<ul>` blurb) in the right nav_order slot.
 
 ### content/AleixMT.github.io
 
-One Jekyll post per project at
-`_posts/Projects/{Job_Projects,Personal_Projects,Academic_Projects}/2023-07-04-<Name>.md`.
+The site nav is **Organizations › organization › project** (just-the-docs). A top-level
+`_posts/2023-07-05-Organizations.md` page (`nav_order: 3`, `has_children: true`) has one child
+page per organization at `_posts/Organizations/2023-07-03-<Org>.md`; each project is a page under
+its organization at `_posts/Organizations/<Org_dir>/2023-07-04-<Name>.md`.
 
-Front matter:
+Project page front matter:
 
 ```yaml
 layout: default
 title: <Name>
-permalink: /Projects/<Job|Personal|Academic>-Projects/<slug>
-parent: <Job|Personal|Academic> Projects
-grand_parent: Projects
-nav_order: <next free integer under that parent>
+permalink: /Organizations/<Org-slug>/<slug>
+parent: <Org name>
+grand_parent: Organizations
+nav_order: <next free integer under that organization>
 categories: projects
 tags: projects
 ```
@@ -127,8 +144,11 @@ tags: projects
 Body: one short prose paragraph (from the `summary`) followed by a trailing `[Repository](url)`
 line.
 
-Categorisation: ICIQ / paid work → **Job Projects**; hobby / open-source → **Personal Projects**;
-built for a university course → **Academic Projects**.
+If the owning organization has no page yet, add `_posts/Organizations/2023-07-03-<Org>.md`
+(`parent: Organizations`, no `grand_parent`, `has_children: true`, `categories`/`tags:
+Organizations`, next free top-level `nav_order`) and create its `_posts/Organizations/<Org_dir>/`
+folder. Current org folders: `ICIQ-DMP/`, `Gua-tk_software/`, `URV-BioGEI/`, `VidWise/`,
+`Personal_Projects_AleixMT/`.
 
 ## Other sections
 
