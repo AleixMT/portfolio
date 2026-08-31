@@ -1,0 +1,11 @@
+services:
+  portfolio:
+    image: yamlresume/yamlresume
+    working_dir: /home/yamlresume
+    # Run as the host user (not the image's default uid 2048) so files
+    # created in the bind mount are owned by whoever runs docker compose.
+    user: "${UID:-1000}:${GID:-1000}"
+    command: ["dev", "portfolio.yml"]
+    volumes:
+      # Mount the development folder so edits on the host are picked up live
+      - .:/home/yamlresume

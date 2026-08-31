@@ -1,405 +1,585 @@
-
 # yaml-language-server: $schema=https://yamlresume.dev/schema.json
 #
-# YAMLResume provides a builtin schema to validate resumes and help avoid lots
-# of low level mistakes.
+# Single source of truth for Aleix Mariné-Tena's CV / portfolio.
+# Built from:
+#   - content/resume.tex (+ content/my_resume.pdf)  — LaTeX CV
+#   - content/Profile.pdf                            — LinkedIn profile export (linkedin.com/in/aleixmt)
+#   - content/aleixmt/README.md                      — GitHub profile
+# The aleixmt.github.io repo is an empty skeleton and only contributed section structure.
 #
-# You need to install https://github.com/redhat-developer/yaml-language-server
-# in order to get the best editing experience in your choice of editor/IDE.
-#
-# ref:
-# - https://yamlresume.dev/docs/compiler/schema
-# - https://yamlresume.dev/docs/compiler/schema/json
-#
-# Multilingual content: text fields accept either a plain string or a map of
-# locale codes to strings.  Switch locale.language below to render a different
-# language.  Catalan ('ca') is stored here but requires adding 'ca' to the
-# supported locale list before it can be selected via locale.language.
-
+# Render with: yamlresume build portfolio.yml   (see layouts: at the bottom)
+# ref: https://yamlresume.dev/docs/compiler/schema
 ---
-
 content:
   basics:
-    name: Aleix Dufresne
-    headline:
-      en: Headed for the Pacific
-      es: Con rumbo al Pacífico
-      cat: Rumb al Pacífic
-    phone: "(213) 555-9876"
-    email: hi@ppresume.com
-    url: https://ppresume.com/gallery
-    # All summary fields support a limited rich text capability in markdown
-    # syntax:
-    #
-    # - bold, (e.g, `**bold**`)
-    # - italic, (e.g, `*italic*`)
-    # - ordered list, unordered list and nested sub list
-    # - links (e.g. `[link](https://ppresume.com)`)
-    summary:
-      en: |
-        - Computer Science major with strong foundation in data structures, algorithms, and software development
-        - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
-        - Experienced in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
-        - Team player, with detail-oriented mindset and a keen eye for design and user experiences
-      es: |
-        - Estudiante de Ciencias de la Computación con sólidas bases en estructuras de datos, algoritmos y desarrollo de software
-        - Desarrollador web full stack con atención al detalle, especializado en crear sitios web de alta calidad y atractivo visual
-        - Experiencia en bases de datos (SQL, NoSQL), familiarizado con tecnologías del lado del servidor (Node.js, Express, etc.)
-        - Trabajador en equipo, con mentalidad orientada al detalle y buen ojo para el diseño y la experiencia de usuario
-      cat: |
-        - Estudiant d'Informàtica amb sòlides bases en estructures de dades, algorismes i desenvolupament de programari
-        - Desenvolupador web full stack amb atenció al detall, especialitzat en crear llocs web d'alta qualitat i atractiu visual
-        - Experiència en bases de dades (SQL, NoSQL), familiaritzat amb tecnologies del costat del servidor (Node.js, Express, etc.)
-        - Treballador en equip, amb mentalitat orientada al detall i bon ull per al disseny i l'experiència d'usuari
+    name: Aleix Mariné-Tena
+    headline: Automation & DevOps Engineer · CI/CD, System Architecture & Research Infrastructure · Biotech + CS background
+    email: aleixaretra@gmail.com
+    phone: "+34 687351227"
+    url: https://github.com/AleixMT
+    summary: |
+      - Computer engineer working at the intersection of software development, infrastructure automation and system 
+      design, with a dual background in biotechnology and computer science
+      -  I've been wearing many hats at once: designing, implementing and deploying data management platforms used by 
+      researchers across Europe, automating build/test/deployment pipelines, modelling and automating business 
+      operations, architecting systems from scratch, and managing stakeholders from scientists to institutional 
+      partners.
+      - Automation engineering is the sweet spot: making complex workflows robust, reproducible and hands-off
+      - I own systems end-to-end, from architecture diagram to CI/CD pipeline and documentation
+      - Crisis experience: led full infrastructure recovery for a business hit by a ransomware attack
+      - Flagship open-source project Linux-Auto-Customizer automates ~300 features across Linux, Windows (WSL2) and 
+      Android (Termux)
+      - Free-software advocate and ASBTEC volunteer 
+
   location:
-    address: 123 Main Street
-    city: Sacramento
-    region:
-      en: California
-      es: California
-      cat: Califòrnia
-    country: United States
-    postalCode: "95814"
+    address: Avinguda dels Països Catalans 22C, 2o 3a
+    city: Tarragona
+    region: Catalonia
+    country: Spain
+    postalCode: "43007"
+
   profiles:
-    - network: Line
-      url: https://line.com/PPResumeX
-      username: PPResumeX
-    - network: Twitter
-      url: https://twitter.com/PPResumeX
-      username: PPResumeX
+    - network: GitHub
+      username: AleixMT
+      url: https://github.com/AleixMT
+    - network: LinkedIn
+      username: aleixmt
+      url: https://www.linkedin.com/in/aleixmt/
+    - network: ORCID
+      username: 0000-0001-9273-1203
+      url: https://orcid.org/0000-0001-9273-1203
+    - network: Stack Overflow
+      username: Aleix Mariné
+      url: https://stackoverflow.com/users/7733017
+    - network: Discord
+      username: aleixmt
+      url: https://discord.com/users/518477586523750423
+    - network: Gitlab
+      username: AleixMT
+      url: https://gitlab.com/AleixMT
+    - network: Dev.to
+      username: aleixmt
+      url: https://dev.to/aleixmt
+    - network: LeetCode
+      username: AleixMT
+      url: https://leetcode.com/u/aleixmt/
+
   education:
-    - institution: University of Southern California
-      url: https://www.cs.usc.edu/
-      # Valid degree options:
-      #
-      # - 'Middle School'
-      # - 'High School'
-      # - 'Diploma'
-      # - 'Associate'
-      # - 'Bachelor'
-      # - 'Master'
-      # - 'Doctor'
+    - institution: Universidad Internacional de La Rioja (UNIR)
+      url: https://www.unir.net/
+      degree: Master
+      area: Software Engineering and Computer Systems
+      startDate: Sep 2023
+      endDate: Sep 2025
+    - institution: Universitat Rovira i Virgili
+      url: https://www.urv.cat/
       degree: Bachelor
-      area:
-        en: Computer Engineering and Computer Science
-        es: Ingeniería Informática y Ciencias de la Computación
-        cat: Enginyeria Informàtica i Ciències de la Computació
-      score: "3.8"
-      # Should be a valid date string that can be parsed by `new Date(dateStr)`
-      # in JavaScript, eg. '2020-01', '2020-02-03', 'Jul 1, 2023' etc.
-      startDate: Sep 1, 2016
-      endDate: Jul 1, 2020
-      courses:
-        - Discrete Methods in Computer Science
-        - Programming Language Concepts
-        - Data Structures and Object-Oriented Design
-        - Operating Systems
-        - Computer Architecture
-        - Database Systems
-        - Computer Networking
-        - Introduction to the Theory of Computing
-      summary:
-        en: |
-          - Developed proficiency in programming languages such as Java, C++, and Python
-          - Gained hands-on experience in software development through various projects and assignments
-          - Strong communication and teamwork skills acquired through group projects and presentations
-        es: |
-          - Adquirí competencia en lenguajes de programación como Java, C++ y Python
-          - Obtuve experiencia práctica en desarrollo de software a través de diversos proyectos y tareas
-          - Desarrollé habilidades de comunicación y trabajo en equipo a través de proyectos grupales y presentaciones
-        cat: |
-          - Vaig adquirir competència en llenguatges de programació com Java, C++ i Python
-          - Vaig obtenir experiència pràctica en desenvolupament de programari a través de diversos projectes i tasques
-          - Vaig desenvolupar habilitats de comunicació i treball en equip a través de projectes grupals i presentacions
+      area: Computer Engineering
+      startDate: Sep 2015
+      endDate: Nov 2020
+    - institution: Universitat Rovira i Virgili
+      url: https://www.urv.cat/
+      degree: Bachelor
+      area: Biotechnology
+      startDate: Sep 2014
+      endDate: Nov 2020
+
   work:
-    - id: ppresume-senior
-      name: PPResume
-      url: https://ppresume.com
-      startDate: Dec 1, 2022
+    - name: Institut Català d'Investigació Química (ICIQ)
+      url: https://github.com/ICIQ-DMP
+      position: Data Steward
+      startDate: Apr 2025
       endDate:
-      position:
-        en: Senior Software Engineer
-        es: Ingeniero de Software Senior
-        cat: Enginyer de Programari Sènior
-      summary:
-        en: |
-          - Developed and implemented efficient and scalable code, ensuring high-quality and maintainable web applications
-          - Collaborated with cross-functional teams to gather project requirements and translate them into technical solutions
-          - Conducted thorough testing and debugging to identify and resolve any issues or bugs in the software
-          - Actively participated in code reviews, providing valuable feedback to improve code quality and adherence to best practices
-          - Mentored and guided junior developers, fostering a collaborative and growth-oriented team environment
-        es: |
-          - Desarrollé e implementé código eficiente y escalable, garantizando aplicaciones web de alta calidad y mantenibles
-          - Colaboré con equipos multifuncionales para recopilar requisitos del proyecto y traducirlos en soluciones técnicas
-          - Realicé pruebas exhaustivas y depuración para identificar y resolver problemas o errores en el software
-          - Participé activamente en revisiones de código, aportando comentarios valiosos para mejorar la calidad y las buenas prácticas
-          - Mentoricé y guié a desarrolladores junior, fomentando un entorno de equipo colaborativo y orientado al crecimiento
-        cat: |
-          - Vaig desenvolupar i implementar codi eficient i escalable, garantint aplicacions web d'alta qualitat i mantenibles
-          - Vaig col·laborar amb equips multifuncionals per recollir requisits del projecte i traduir-los en solucions tècniques
-          - Vaig realitzar proves exhaustives i depuració per identificar i resoldre problemes o errors al programari
-          - Vaig participar activament en revisions de codi, aportant comentaris valuosos per millorar la qualitat i les bones pràctiques
-          - Vaig guiar i assessorar desenvolupadors júniors, fomentant un entorn d'equip col·laboratiu i orientat al creixement
+      summary: |
+        - Design, develop and maintain solutions for the digitalization needs of researchers at ICIQ
+        - Meet with research leaders and coordinators to capture digitalization needs and evolve the applications accordingly
+        - Manage own hardware infrastructure and run the institute's digitalization services
+        - Build and maintain a CI/CD pipeline that packages the application as a Docker image and deploys it to the server
+        - Document digitalization workflows for both researchers and future data stewards
+        - Attend and present at data-science conferences, seminars and events (e.g. the ICIQ Open Data Day)
+        - design and deploy data-management platforms used by researchers across
+        Europe, automate build/test/deploy pipelines, model business operations and architect systems from scratch
       keywords:
-        - Scalability
-        - Growth
-        - Quality
-        - Mentorship
-    - id: ppresume-engineer
-      name: PPResume
-      url: https://ppresume.com
-      startDate: Sep 1, 2020
-      endDate: Dec 1, 2022
-      position:
-        en: Software Engineer
-        es: Ingeniero de Software
-        cat: Enginyer de Programari
-      summary:
-        en: |
-          - Created reusable React components to ensure code efficiency and maintainability
-          - Integrated with RESTful APIs to fetch and display dynamic data on the frontend
-          - Implemented client-side routing using React Router for smooth navigation between pages
-          - Actively participated in Agile development methodologies, attending daily stand-up meetings and sprint planning sessions
-        es: |
-          - Creé componentes React reutilizables para garantizar la eficiencia y mantenibilidad del código
-          - Me integré con APIs RESTful para obtener y mostrar datos dinámicos en el frontend
-          - Implementé enrutamiento del lado del cliente usando React Router para una navegación fluida entre páginas
-          - Participé activamente en metodologías de desarrollo Agile, asistiendo a reuniones diarias y sesiones de planificación de sprint
-        cat: |
-          - Vaig crear components React reutilitzables per garantir l'eficiència i mantenibilitat del codi
-          - Vaig integrar APIs RESTful per obtenir i mostrar dades dinàmiques al frontend
-          - Vaig implementar l'enrutament del costat del client amb React Router per a una navegació fluida entre pàgines
-          - Vaig participar activament en metodologies de desenvolupament Agile, assistint a reunions diàries i sessions de planificació de sprint
+        - Automation
+        - CI/CD
+        - Docker
+        - Data Stewardship
+        - Infrastructure
+    - name: Universitat Rovira i Virgili
+      url: https://www.urv.cat/
+      position: Substitute Teacher
+      startDate: Sep 2024
+      endDate:
+      summary: |
+        - Teach laboratory (practical) sessions of the Computers subject in the Computer Science degree at my alma mater, URV
+        - Systematize and automate teaching materials; develop large-group teaching and communication skills
+        - Bring the perspective of a recent student of the same subject to lab instruction and mentoring
       keywords:
-        - RESTful
-        - React
-        - Agile
-  languages:
-    # Valid language fluency options:
-    #
-    # - 'Elementary Proficiency'
-    # - 'Limited Working Proficiency'
-    # - 'Minimum Professional Proficiency'
-    # - 'Full Professional Proficiency'
-    # - 'Native or Bilingual Proficiency'
-    - language: English
-      fluency: Native or Bilingual Proficiency
+        - Teaching
+        - Computer Architecture
+        - Mentoring
+    - name: Institut Català d'Investigació Química (ICIQ)
+      url: https://github.com/AleixMT/eChempad
+      position: Full Stack Engineer — Bo Research Group
+      startDate: Mar 2021
+      endDate: Apr 2025
+      summary: |
+        - Built eChempad, a digitalization platform that lets experimental chemists extract research datasets from PerkinElmer Signals Notebook and export them to an official research data repository (https://echempad.iciq.cat)
+        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker
+        - Contributed patches to IQSS/dataverse-client-java to support the integration
+        - Repository: https://github.com/AleixMT/eChempad
       keywords:
-        - TOEFL 110
-        - IELTS 7.5
-    - language: Chinese
-      fluency: Elementary Proficiency
-      keywords: []
+        - Java
+        - Spring Boot
+        - PostgreSQL
+        - ZK
+        - Dataverse
+        - Docker
+    - name: Equipaments Hosteleria Salou
+      url: https://github.com/Equipaments-Hosteleria-Salou
+      position: Security Analyst
+      startDate: Sep 2019
+      endDate: Mar 2021
+      summary: |
+        - Led disaster mitigation and full infrastructure recovery after a ransomware (BitLocker) attack on the business
+        - Recovered data and restored services with minimal disruption for users
+        - Rebuilt and hardened the Windows-based infrastructure with stronger security
+      keywords:
+        - Incident Response
+        - Windows
+        - Security
+        - Backup
+    - name: Smart Health Research Group (URV)
+      url: https://ieeexplore.ieee.org/document/8900718
+      position: Student Researcher
+      startDate: Aug 2018
+      endDate: Sep 2019
+      summary: |
+        - Exhaustive analysis of Human Activity Recognition (HAR) techniques and the feasibility of machine-learning algorithms for HAR, reviewing 200+ scientific papers
+        - Produced the review delivered as my final degree project, intended as the theoretical basis for an e-health platform to support early mobilisation in Intensive Care Units
+        - Work fed into the IISA 2019 publication "e-PEMICU"
+      keywords:
+        - Machine Learning
+        - HAR
+        - e-Health
+        - Research
+    - name: "SEES:lab (URV)"
+      url: https://github.com/AleixMT/TrigenicInteractionPredictor
+      position: Internship Researcher — Project Grant
+      startDate: Jun 2018
+      endDate: Sep 2018
+      summary: |
+        - Project grant to start my Bioinformatics final degree project in the SEES:lab research group (Sales-Pardo & Guimerà)
+        - Developed an algorithm implementing a Mixed-Membership Stochastic Block Model (MMSBM) to predict interactions between triplets of genes
+        - Work continued afterwards and contributed to a 2023 PNAS publication on hyperedge prediction in complex networks
+        - Repository: https://github.com/AleixMT/TrigenicInteractionPredictor
+      keywords:
+        - Python
+        - Big Data
+        - Complex Networks
+        - Research
+    - name: Freelance
+      url: https://github.com/AleixMT/Problemas-Computadores
+      position: Private Teacher
+      startDate: Oct 2011
+      endDate: Sep 2024
+      summary: |
+        - Taught high-school students, university students and adults across a range of subjects and levels
+        - Subjects: Maths, Biology, Chemistry, Physics, Algorithms, Programming, Philosophy and personal IT management
+        - One-on-one format; class materials (mainly code) published openly on GitHub
+      keywords:
+        - Teaching
+        - Programming
+        - C
+        - ARM Assembly
+    - name: Boji Bay Fun House and Pavilion
+      position: Crew Member
+      startDate: Jun 2016
+      endDate: Sep 2016
+      summary: |
+        - Work & Travel USA program during summer 2016 in Milford, Iowa (USA)
+        - Maintenance tasks: gardening, painting, machine repair, cleaning, dish-washing
+        - Ran the minigolf and the merchandise stand on concert days
+      keywords:
+        - Work & Travel
+        - Customer Service
+
+  projects:
+    - name: Justicier
+      url: https://github.com/ICIQ-DMP/Justicier
+      description: Automation to extract the relevant pages of payroll PDFs for a given employee and period.
+      startDate: Sep 2025
+      endDate:
+      summary: |
+        - Employees submit requests via Microsoft Forms; a Microsoft List is the source of truth for execution parameters
+        - New requests trigger Power Automate, which runs a Microsoft Approvals workflow for supervisor sign-off
+        - On approval, an on-premises Jenkins instance behind an NGINX firewall triggers the job
+        - OneDrive client for Linux keeps SharePoint inputs and processed outputs in sync; components deployed with Docker
+      keywords:
+        - Python
+        - Bash
+        - Docker
+        - Jenkins
+        - NGINX
+        - Power Automate
+        - SharePoint
+    - name: eChempad
+      url: https://github.com/AleixMT/eChempad
+      description: Digitalization platform to move experimental chemistry datasets from PerkinElmer Signals Notebook into an official research data repository.
+      startDate: Sep 2021
+      endDate:
+      summary: |
+        - Lets experimental chemists digitalize their research and export it to an official repository (https://echempad.iciq.cat)
+        - Java + Spring Boot + PostgreSQL back end with a ZK front end; deployed with Docker
+        - Documentation published at https://iciq-dmp.github.io/
+      keywords:
+        - Java
+        - Spring Boot
+        - ZK
+        - PostgreSQL
+        - Dataverse
+        - Docker
+    - name: Linux Auto Customizer
+      url: https://github.com/Gua-tk/Linux-Auto-Customizer
+      description: Bash tool to automate, manage and maintain installations and customizations across Linux machines.
+      startDate: May 2019
+      endDate:
+      summary: |
+        - Ships almost 300 pre-coded installations and customizations that work out of the box
+        - Compatible with Windows through WSL2 and git bash, and with Android through Termux
+        - My flagship open-source project, hosted under the Gua-tk organization
+      keywords:
+        - Bash
+        - Linux
+        - Automation
+        - WSL2
+        - Termux
+    - name: Problemas Computadores
+      url: https://github.com/vidwise/Problemas-Computadores
+      description: Solutions to the "Computers" course problems (C and ARM assembly) of the URV Computer Science degree.
+      startDate: Jan 2022
+      endDate:
+      summary: |
+        - Exercises where peripherals are synced with the Nintendo DS CPUs using interrupts and other synchronisation mechanisms
+        - Started for freelance teaching, then grew into a collaboration with the subject's teachers and contributing students
+      keywords:
+        - C
+        - ARM Assembly
+        - Nintendo DS
+        - Teaching
+    - name: GarlicOS
+      url: https://github.com/URV-BioGEI/GarlicOS
+      description: Functional operating system for the Nintendo DS built for the Operating Systems Structure course.
+      startDate: Aug 2017
+      endDate: Jan 2018
+      summary: |
+        - Executes binary programs and exposes an API for memory management, virtual keyboard, windowed graphics and process multiplexing
+        - Written in C and ARM assembly
+      keywords:
+        - C
+        - ARM Assembly
+        - Operating Systems
+        - Nintendo DS
+    - name: ICIQ-DMP documentation site
+      url: https://github.com/ICIQ-DMP/ICIQ-DMP-github.io
+      description: Documentation site for the digitalization project at ICIQ.
+      startDate: Sep 2022
+      endDate:
+      summary: |
+        - Covers eChempad usage, the production server, the experiment data-management lifecycle and the Dataverse / Signals Notebook data schemes
+        - Built with Jekyll, deployed with Docker and GitHub Actions
+      keywords:
+        - Jekyll
+        - Markdown
+        - Docker
+        - GitHub Actions
+    - name: home-server
+      url: https://github.com/AleixMT/home-server
+      description: Documentation and configuration for a custom home media server.
+      startDate: Aug 2022
+      endDate:
+      summary: |
+        - Multi-boot with Windows and other systems; OpenVPN for safe remote access to the web services
+        - Samba file sharing, Wake-on-LAN, SSH access and a home dashboard
+        - Automated media monitoring and download with Jackett + Radarr + Sonarr + Transmission
+      keywords:
+        - Linux
+        - Docker
+        - OpenVPN
+        - Samba
+        - Fedora
+    - name: github-backup
+      url: https://github.com/AleixMT/github-backup
+      description: Python tool to clone every repository from a GitHub and/or GitLab account.
+      startDate: Jan 2025
+      endDate:
+      summary: |
+        - Small utility to mirror all repositories from your GitLab and/or GitHub profile
+        - Work in progress; the basic functionality is in place
+      keywords:
+        - Python
+        - Git
+        - Docker
+    - name: virus-house
+      url: https://github.com/AleixMT/virus-house
+      description: Curated archive of late-2000s / early-2010s malware kept for research and educational analysis.
+      startDate: May 2025
+      endDate:
+      summary: |
+        - Collection of historical malware samples found on the Internet, preserved for study of their behaviour, origins and binary structure
+        - Documents safe-handling practice: samples are only to be run in isolated, offline virtual machines
+        - Roadmap covers per-sample write-ups, classification by malware type and encryption of the binaries for safer storage
+        - Released into the public domain under the Unlicense
+      keywords:
+        - Malware Analysis
+        - Reverse Engineering
+        - Cybersecurity
+        - Batch
+        - Research
+    - name: AleixMT (GitHub profile)
+      url: https://github.com/AleixMT/AleixMT
+      description: The special AleixMT/AleixMT repository whose README renders as the landing page of my GitHub profile.
+      startDate: Mar 2022
+      endDate:
+      summary: |
+        - Hand-maintained profile README with my projects, technology stacks, organizations and profile stats
+        - Bootstrapped with the GitHub Profile README Generator, then heavily customized
+        - Single source of truth for the project list that also feeds this portfolio / CV
+      keywords:
+        - Markdown
+        - HTML
+        - Git
+        - GitHub Actions
+    - name: AleixMT.github.io
+      url: https://github.com/AleixMT/AleixMT.github.io
+      description: Source of my personal portfolio website, a Jekyll site published to GitHub Pages.
+      startDate: Sep 2022
+      endDate:
+      summary: |
+        - Jekyll site built on the Just the Docs theme, served at https://aleixmt.github.io
+        - Every section (studies, skills, jobs, projects, publications, ...) is a Markdown page under _posts/, organised into nested categories
+        - Runs locally with Docker Compose or a native Ruby toolchain; pushes to master auto-deploy via a GitHub Actions Pages workflow
+        - Project section is kept in one-way sync from portfolio.yml
+      keywords:
+        - Jekyll
+        - Ruby
+        - GitHub Pages
+        - GitHub Actions
+        - Docker
+        - Markdown
+
   skills:
-    # Valid level options:
-    #
-    # - 'Novice'
-    # - 'Beginner'
-    # - 'Intermediate'
-    # - 'Advanced'
-    # - 'Expert'
-    # - 'Master'
-    - id: web-development
-      name:
-        en: Web Development
-        es: Desarrollo Web
-        cat: Desenvolupament Web
+    - name: Automation & DevOps
+      level: Expert
+      keywords:
+        - CI/CD
+        - Docker
+        - Jenkins
+        - GitHub Actions
+        - GitLab CI
+        - NGINX
+        - Automation
+    - name: Programming Languages
       level: Expert
       keywords:
         - Python
-        - Ruby
-        - CSS
-        - React
+        - Bash
+        - Java
+        - C
+        - Assembly
         - JavaScript
-      usedIn:
-        - ppresume-senior
-        - ppresume-engineer
-        - eduweb
-    - id: devops
-      name:
-        en: DevOps
-        es: DevOps
-        cat: DevOps
+        - TypeScript
+    - name: Architecture & Practices
+      level: Advanced
+      keywords:
+        - Software Architecture
+        - Design Patterns
+        - UML
+        - Clean Code
+        - REST APIs
+        - Microservices
+        - Technical Documentation
+    - name: Backend & Web
+      level: Advanced
+      keywords:
+        - Spring Boot
+        - ZK
+        - React
+        - Swagger
+        - Bootstrap
+        - Flask
+    - name: Data & Research Infrastructure
+      level: Advanced
+      keywords:
+        - Data Management
+        - Data Migration
+        - Dataverse
+        - Research Data Repositories
+        - Complex Networks
+    - name: Databases
+      level: Advanced
+      keywords:
+        - PostgreSQL
+        - Redis
+        - MariaDB
+        - MySQL
+        - MongoDB
+    - name: Platforms & Cloud
       level: Intermediate
       keywords:
-        - Python
+        - Linux
+        - Google Workspace
+        - SharePoint
+        - AWS
+        - Google Cloud
         - Kubernetes
-        - Docker
-        - Shell
-        - Ansible
-      usedIn:
-        - ppresume-senior
-        - aws-cert
-    - id: design
-      name:
-        en: Design
-        es: Diseño
-        cat: Disseny
-      level: Intermediate
+        - Vercel
+    - name: Tools & Markup
+      level: Advanced
       keywords:
-        - Sketch
-        - Figma
-        - Photoshop
-      usedIn:
-        - eduweb
-  awards:
-    - title:
-        en: Dean's List
-        es: Lista del Decano
-        cat: Llista del Degà
-      awarder: University of Southern California
-      date: Oct 2016
-      summary:
-        en: |
-          Awarded to students who achieve a high academic standing by maintaining a specified grade point average (GPA) during a semester.
-        es: |
-          Otorgado a estudiantes que logran un alto rendimiento académico manteniendo un promedio de calificaciones (GPA) especificado durante un semestre.
-        cat: |
-          Atorgat als estudiants que assoleixen un alt rendiment acadèmic mantenint una mitjana de qualificacions (GPA) especificada durant un semestre.
-  certificates:
-    - id: aws-cert
-      name:
-        en: AWS Certified Developer - Associate
-        es: Desarrollador Certificado de AWS - Asociado
-        cat: Desenvolupador Certificat d'AWS - Associat
-      url: https://aws.amazon.com/certification/
-      issuer: AWS
-      date: Mar 2021
-  publications:
-    - publisher: ACM Transactions on Interactive Intelligent Systems
-      url: https://dl.acm.org/journal/tiis
-      name:
-        en: Enhancing Human-Computer Interaction through Augmented Reality
-        es: Mejorando la Interacción Humano-Computadora mediante Realidad Aumentada
-        cat: Millorant la Interacció Humà-Ordinador mitjançant Realitat Augmentada
-      releaseDate: Dec 2017
-      summary:
-        en: |
-          - Explores the potential of augmented reality (AR) in improving interaction between humans and computers
-          - Highlights benefits of AR in various areas such as gaming, education, healthcare, and design
-          - Discusses challenges and future directions of AR technology in enhancing user experience
-        es: |
-          - Explora el potencial de la realidad aumentada (RA) para mejorar la interacción entre humanos y computadoras
-          - Destaca los beneficios de la RA en áreas como los videojuegos, la educación, la salud y el diseño
-          - Analiza los desafíos y las direcciones futuras de la tecnología de RA para mejorar la experiencia de usuario
-        cat: |
-          - Explora el potencial de la realitat augmentada (RA) per millorar la interacció entre humans i ordinadors
-          - Destaca els beneficis de la RA en àrees com els videojocs, l'educació, la salut i el disseny
-          - Analitza els reptes i les direccions futures de la tecnologia de RA per millorar l'experiència d'usuari
-  references:
-    - name: Dr. Amanda Reynolds
-      phone: "(555) 123-4567"
-      relationship: Computer Science Professor
-      email: amanda.reynolds@usc.edu
-      summary:
-        en: |
-          Andy Dufresne shows exceptional problem-solving skills and a solid understanding of programming concepts, he would bring immense value to any team or organization he becomes a part of.
-        es: |
-          Andy Dufresne demuestra habilidades excepcionales para resolver problemas y un sólido conocimiento de los conceptos de programación; aportaría un valor inmenso a cualquier equipo u organización del que forme parte.
-        cat: |
-          Andy Dufresne demostra habilitats excepcionals per resoldre problemes i una sòlida comprensió dels conceptes de programació; aportaria un valor immens a qualsevol equip o organització de la qual formi part.
-  projects:
-    - id: eduweb
-      name:
-        en: EduWeb
-        es: EduWeb
-        cat: EduWeb
-      url: https://www.eduweb.xyz/
-      description:
-        en: A web-based educational platform for interactive learning
-        es: Una plataforma educativa basada en web para el aprendizaje interactivo
-        cat: Una plataforma educativa basada en web per a l'aprenentatge interactiu
-      startDate: Sep 2016
-      endDate: Dec 2016
-      summary:
-        en: |
-          - Designed to enhance online learning experiences
-          - Facilitates students' engagement and collaboration through interactive features and user-friendly interface
-          - Offers a wide range of courses across various subjects
-          - Aims to improve the way students learn through the power of the web
-        es: |
-          - Diseñado para mejorar las experiencias de aprendizaje en línea
-          - Facilita la participación y colaboración de los estudiantes a través de funciones interactivas e interfaz amigable
-          - Ofrece una amplia gama de cursos en diversas materias
-          - Busca mejorar la forma en que los estudiantes aprenden aprovechando el poder de la web
-        cat: |
-          - Dissenyat per millorar les experiències d'aprenentatge en línia
-          - Facilita la participació i col·laboració dels estudiants a través de funcions interactives i interfície amigable
-          - Ofereix una àmplia gamma de cursos en diverses matèries
-          - Pretén millorar la forma en què els estudiants aprenen aprofitant el poder del web
+        - Git
+        - Maven
+        - GNU Make
+        - Jekyll
+        - YAML
+        - LaTeX
+        - Markdown
+    - name: Project & Team
+      level: Advanced
       keywords:
-        - Education
-        - Online Learning
-        - HCI
-  interests:
-    - name:
-        en: Sports
-        es: Deportes
-        cat: Esports
-      keywords:
-        - Soccer
-        - Swimming
-        - Bicycling
-        - Hiking
-    - name:
-        en: Music
-        es: Música
-        cat: Música
-      keywords:
-        - Piano
-        - Guitar
-  volunteer:
-    - organization: USC Computer Science and Engineering Society
-      url: https://www.usccsesociety.org/
-      position:
-        en: Tech Mentor
-        es: Mentor Tecnológico
-        cat: Mentor Tecnològic
-      startDate: Sep 2015
-      endDate: Jul 2023
-      summary:
-        en: |
-          - Volunteered as a Tech Mentor at USC Computer Science and Engineering Society
-          - Provided guidance and assistance to fellow students in their technical projects and coursework
-          - Assisted in organizing workshops, coding competitions, and networking events for the society members
-          - Contributed to fostering a collaborative and supportive environment within the student community
-        es: |
-          - Ejercí como Mentor Tecnológico en la USC Computer Science and Engineering Society
-          - Proporcioné orientación y asistencia a compañeros estudiantes en sus proyectos técnicos y coursework
-          - Ayudé a organizar talleres, competencias de programación y eventos de networking para los miembros de la sociedad
-          - Contribuí a fomentar un entorno colaborativo y de apoyo dentro de la comunidad estudiantil
-        cat: |
-          - Vaig exercir com a Mentor Tecnològic a la USC Computer Science and Engineering Society
-          - Vaig proporcionar orientació i assistència als companys estudiants en els seus projectes tècnics i tasques
-          - Vaig ajudar a organitzar tallers, competicions de programació i esdeveniments de networking per als membres de la societat
-          - Vaig contribuir a fomentar un entorn col·laboratiu i de suport dins de la comunitat estudiantil
+        - Project Management
+        - Mentoring
+        - Teaching
+        - Stakeholder Management
 
-# Top-level locale setting — switch to 'es' to render in Spanish.
-# Catalan ('ca') keys are stored above but require adding 'ca' to the
-# supported locale list in the tool before it can be selected here.
+  languages:
+    - language: Spanish
+      fluency: Native or Bilingual Proficiency
+      keywords: []
+    - language: Catalan
+      fluency: Native or Bilingual Proficiency
+      keywords: []
+    - language: English
+      fluency: Minimum Professional Proficiency
+      keywords:
+        - Oxford Certified B2
+    - language: German
+      fluency: Elementary Proficiency
+      keywords: []
+
+  awards:
+    - title: Winner — DEMOLA Southern Catalonia
+      awarder: DEMOLA / Universitat Rovira i Virgili
+      date: "2018"
+      summary: |
+        Winning team for the challenge "Building an integral learning experience at the URV".
+    - title: Vocal of Informatics — ASBTEC Board of Directors
+      awarder: Association of Biotechnologists of Catalonia (ASBTEC)
+      summary: |
+        Elected to the board of directors of ASBTEC as the member responsible for informatics.
+
+  certificates:
+    - name: Oxford Certified B2 Level of English
+      issuer: University of Oxford
+    - name: B1 driver license with own transport
+      issuer: Dirección General de Tráfico (DGT)
+    - name: Data stewarding and data curation courses
+      issuer: Various providers
+    - name: Fundamentals of Arduino
+      issuer: Not specified  # TODO: fill issuer
+    - name: Microsoft Office
+      issuer: Not specified  # TODO: fill issuer
+    - name: Music Theory
+      issuer: Not specified  # TODO: fill issuer
+    - name: Mechanography
+      issuer: Not specified  # TODO: fill issuer
+
+  publications:
+    - name: Hyperedge prediction and the statistical mechanisms of higher-order and lower-order interactions in complex networks
+      publisher: Proceedings of the National Academy of Sciences (PNAS)
+      releaseDate: "2023"
+      url: https://doi.org/10.1073/pnas.2303887120
+      summary: |
+        Authors: Marta Sales-Pardo, Aleix Mariné-Tena, Roger Guimerà. PNAS Applied Physical Sciences, vol. 120, issue 50.
+    - name: "e-PEMICU: an e-Health Platform to Support Early Mobilisation in Intensive Care Units"
+      publisher: 2019 10th International Conference on Information, Intelligence, Systems and Applications (IISA), IEEE
+      releaseDate: "2019"
+      url: https://doi.org/10.1109/iisa.2019.8900718
+      summary: |
+        Authors: Martínez-Ballesté A., Gimeno P., Mariné A., Batista E., Solanas A. Indexed in IEEE Xplore.
+
+  volunteer:
+    - organization: ASBTEC - Associació de Biotecnòlegs de Catalunya
+      url: https://asbtec.cat/
+      position: Board Member — IT Administrator and Digital Services
+      startDate: Aug 2023
+      endDate:
+      summary: |
+        - Administer the Google Workspace organization and the WordPress site and server infrastructure
+        - Created a Digital Welcome Pack for new members
+        - Automated creation and delivery of custom organizational email signatures (https://github.com/ASBTEC/email-signatures-asbtec)
+        - Massively automated course-certificate delivery (https://github.com/ASBTEC/certificates) and QR-code generation (https://github.com/ASBTEC/qr-generator)
+    - organization: ASBTEC - Associació de Biotecnòlegs de Catalunya
+      url: https://asbtec.cat/
+      position: Board Member — Secretary
+      startDate: Aug 2020
+      endDate: Aug 2021
+      summary: |
+        - Kept the association running through the COVID-19 outbreaks, a difficult year for its planned activities
+
+  interests:
+    - name: Free & Open Source Software
+      keywords:
+        - Linux
+        - Self-hosting
+        - Automation
+    - name: Retro & Homebrew Computing
+      keywords:
+        - Nintendo DS
+        - ARM Assembly
+        - Flipper Zero
+    - name: Teaching & Mentoring
+      keywords: []
+
 locale:
-  # Use `yamlresume languages list` to get the list of supported languages
   language: en
 
-# Multiple output layouts configuration
 layouts:
+  - engine: html
+    template: calm
+    typography:
+      fontSize: 16px
   - engine: latex
+    template: moderncv-banking
+    advanced:
+      fontspec:
+        numbers: Auto
+      showIcons: true
+      showUrls: true
     page:
       margins:
         top: 2.5cm
+        bottom: 2.5cm
         left: 1.5cm
         right: 1.5cm
-        bottom: 2.5cm
-      showPageNumbers: true
-    # Use `yamlresume templates list` to get the list of available templates
-    template: moderncv-banking
+      showPageNumbers: false
+      paperSize: a4
     typography:
-      # LaTeX engine only supports 10pt, 11pt, and 12pt
-      fontSize: 11pt
-  - engine: markdown
-  - engine: html
-    # Use `yamlresume templates list` to get the list of available templates
+      fontSize: 10pt
+  - engine: docx
     template: calm
+    page:
+      margins:
+        top: 2.5cm
+        bottom: 2.5cm
+        left: 1.5cm
+        right: 1.5cm
+      showPageNumbers: false
+      paperSize: a4
     typography:
-      # HTML engine only supports font size in px unit, from 10px to 24px
-      fontSize: 16px
+      fontSize: 10pt
+      lineSpacing: normal
+    advanced:
+      showUrls: true
+      showIcons: true
+  - engine: markdown
