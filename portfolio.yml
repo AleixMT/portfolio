@@ -60,9 +60,12 @@ content:
     - network: Dev.to
       username: aleixmt
       url: https://dev.to/aleixmt
-    - network: LeetCode
-      username: AleixMT
-      url: https://leetcode.com/u/aleixmt/
+    # LeetCode has no Font Awesome 5 icon (only FA6), so YAMLResume's generated
+    # \faLeetcode macro aborts the PDF build with "Undefined control sequence".
+    # Re-enable once the render toolchain (moderncv/fontawesome5) ships FA6 icons.
+    # - network: LeetCode
+    #   username: AleixMT
+    #   url: https://leetcode.com/u/aleixmt
 
   education:
     - institution: Universidad Internacional de La Rioja (UNIR)
